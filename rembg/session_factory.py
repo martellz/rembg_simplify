@@ -1,7 +1,4 @@
-import hashlib
 import os
-import sys
-from contextlib import redirect_stdout
 from pathlib import Path
 from typing import Type
 
@@ -45,9 +42,10 @@ def new_session(model_name: str = "u2net") -> BaseSession:
     )
 
     fname = f"{model_name}.onnx"
-    path = Path(u2net_home).expanduser()
+    # path = Path(u2net_home).expanduser()
     full_path = Path(u2net_home).expanduser() / fname
 
+    # Download and cache a single file locally.
     pooch.retrieve(
         url,
         f"md5:{md5}",

@@ -18,3 +18,6 @@ def test_remove():
     expected_hash = average_hash(Image.open(BytesIO(expected)))
 
     assert actual_hash == expected_hash
+
+    with open(here / ".." / "examples" / "animal-1.test.png", 'wb') as f:
+        f.write(actual)
